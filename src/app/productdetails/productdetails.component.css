@@ -1,6 +1,7 @@
-.hero {
-	padding-top: 6vh;
+* h6::hover {
+	color: black;
 }
+
 .loader-wrapper {
 	width: 100%;
 	height: 100vh;

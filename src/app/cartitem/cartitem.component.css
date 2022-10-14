@@ -1,0 +1,9 @@
+.item-name {
+	word-break: break-all;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.removeBtn{
+	cursor: pointer;
+}

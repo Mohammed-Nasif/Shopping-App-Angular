@@ -1,0 +1,21 @@
+.counter {
+	color: rgb(0, 185, 218);
+	position: relative;
+	top: 2px;
+	right: 2px;
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+nav {
+	width: 100%;
+	z-index: 100;
+}
+.logo,
+.cartItem {
+	margin-top: -5px;
+}
+
+.logo {
+	color: rgb(0, 185, 218);
+}

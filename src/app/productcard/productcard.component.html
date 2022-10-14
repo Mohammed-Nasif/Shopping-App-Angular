@@ -1,0 +1,51 @@
+<div class="card mb-4 d-flex flex-column justify-content-center" style="width: 18rem; min-height: 30rem">
+	<div class="d-flex justify-content-center align-items-center">
+		<img [src]="product.image" class="card-img-top m-auto" style="width: 250px; height: 300px; object-fit: contain" [alt]="product.name" />
+	</div>
+	<div class="card-body">
+		<p class="card-text" *ngIf="alreadyInCart; then tureContent; else falseContent"> </p>
+		<ng-template #tureContent><span [innerHtml]="stockAvaliable(product.count, currPurchase)"></span></ng-template>
+		<ng-template #falseContent><span [innerHtml]="stockAvaliable(product.count, currPurchase)"></span></ng-template>
+
+		<h6 class="card-title mt-2" (click)="sendProductDetails()" data-toggle="tooltip" data-placement="top" [title]="product.name">{{ product.name }}</h6>
+		<p class="card-text"
+			>Price: <span class="text-primary">{{ product.price | currency: '':'EGP':'':'fr' }}</span></p
+		>
+		<button
+			[ngClass]="alreadyInCart ? 'btn btn-danger' : 'btn btn-secondary'"
+			[disabled]="!product.count"
+			(click)="alreadyInCart ? removeFromCart() : addToCart()">
+			{{ alreadyInCart ? 'Remove from cart' : 'Add To Cart' }}
+		</button>
+	</div>
+	<div class="card-footer">
+		<small class="text-muted">Production Date: {{ product.createdAt | date: 'MMM / Y' }}</small>
+	</div>
+</div>
+
+<!-- <p class="card-text" [ngSwitch]="true">
+			<span *ngSwitchCase="stockAvaliable(product.count, currPurchase) === 0" class="text-danger fw-bold">Out Of Stock</span>
+			<span *ngSwitchCase="stockAvaliable(product.count, currPurchase) === 1" class="text-success fw-bold"
+				>In Stock: <span class="text-warning fw-semibold">{{ stockAvaliable(product.count, currPurchase) }}</span>
+				<span class="text-danger fw-bold">Last Item</span></span
+			>
+			<span *ngSwitchCase="stockAvaliable(product.count, currPurchase) < product.count / 2" class="text-success fw-bold"
+				>In Stock: <span class="text-warning fw-semibold">{{ stockAvaliable(product.count, currPurchase) }}</span> Items</span
+			>
+			<span *ngSwitchDefault class="text-success fw-bold"
+				>In Stock: <span class="text-info fw-semibold">{{ stockAvaliable(product.count, currPurchase) }}</span> Items</span
+			>
+		</p> -->
+<!-- <p class="card-text" [ngSwitch]="true">
+			<span *ngSwitchCase="product.count === currPurchase" class="text-danger fw-bold">Out Of Stock</span>
+			<span *ngSwitchCase="product.count - currPurchase === 1" class="text-success fw-bold"
+				>In Stock: <span class="text-warning fw-semibold">{{ product.count - currPurchase }}</span>
+				<span class="text-danger fw-bold">Last Item</span></span
+			>
+			<span *ngSwitchCase="product.count - currPurchase < product.count / 2" class="text-success fw-bold"
+				>In Stock: <span class="text-warning fw-semibold">{{ product.count - currPurchase }}</span> Items</span
+			>
+			<span *ngSwitchDefault class="text-success fw-bold"
+				>In Stock: <span class="text-info fw-semibold">{{ product.count - currPurchase }}</span> Items</span
+			>
+</p> -->

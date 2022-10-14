@@ -1,0 +1,11 @@
+h6 {
+	word-break: break-all;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: all 0.1s linear;
+}
+h6:hover {
+	color: rgb(247, 0, 21);
+}

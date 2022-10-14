@@ -1,0 +1,43 @@
+<div class="card rounded-3 mb-4">
+	<div class="card-body p-4">
+		<div class="row d-flex justify-content-between align-items-center">
+			<div class="col-md-2 col-lg-2 col-xl-2">
+				<img [src]="item.image" class="img-fluid rounded-3" [alt]="item.name" />
+			</div>
+			<div class="col-md-3 col-lg-3 col-xl-3">
+				<p class="lead fw-normal mb-2 item-name" data-toggle="tooltip" data-placement="top" [title]="item.name">{{ item.name }}</p>
+			</div>
+			<div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+				<button
+					class="btn btn-link px-2"
+				
+					(click)="+purchaseCount.value > +purchaseCount.min ? decreaseCounter() : limitToastr()">
+					<fa-icon [icon]="decIcon"></fa-icon>
+				</button>
+				<input
+					id="form1"
+					min="1"
+					max={{item.count}}
+					[value]="item.purchaseValue"
+					name="quantity"
+					type="number"
+					class="text-center fs-5 p-0 text-bg-secondary form-control form-control-sm"
+					readonly
+					#purchaseCount />
+				<button
+					class="btn btn-link px-2"
+	
+					(click)="+purchaseCount.value < +purchaseCount.max ? increaseCounter() : stockToastr()">
+					<fa-icon [icon]="incIcon"></fa-icon>
+				</button>
+			</div>
+			<div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+				<h5 class="mb-0">{{ +item.price * +purchaseCount.value | currency: '':'EGP':'':'fr' }}</h5>
+			</div>
+			<div class="col-md-1 col-lg-1 col-xl-1 text-end">
+				<a class="text-danger removeBtn" (click)="sendCartUpdate(purchaseCount.value)"><fa-icon [icon]="trashIcon"></fa-icon></a>
+			</div>
+		</div>
+	</div>
+</div>
+
