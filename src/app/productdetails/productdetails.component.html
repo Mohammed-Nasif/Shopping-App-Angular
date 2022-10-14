@@ -2,5 +2,53 @@
 	<span class="loader"></span>
 </div>
 <section class="container m-auto d-flex justify-content-center align-items-center">
-	<app-productcard [product]="product"></app-productcard>
+	<!-- <app-productcard [product]="product"></app-productcard> -->
+	<div class="container mt-5 m-auto">
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-10">
+				<div class="card">
+					<div class="row">
+						<div class="col-md-5">
+							<div class="images p-3">
+								<div class="p-4 zoom-img"> <img id="main-image" [src]="product.image" width="350" /> </div>
+							</div>
+						</div>
+						<div class="col-md-7 p-2">
+							<div class="product p-4">
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="d-flex align-items-center backBtn" routerLink="/home">
+										<i class="fa fa-long-arrow-left"></i> <span class="ml-1">Back</span>
+									</div>
+									<fa-icon [icon]="cartIcon" class="text-muted addtocarticon" (click)="alreadyInCart ? removeFromCart() : addToCart()"></fa-icon>
+								</div>
+								<div class="mt-4 mb-3">
+									<span class="text-uppercase text-muted brand"
+										>Rating: {{ product.rate }}
+										<fa-icon [icon]="starIcon" style="color: gold;"></fa-icon>
+									</span>
+									<h5 class="text-uppercase mt-2">{{ product.name.substring(0, 25) }}</h5>
+									<div class="price d-flex flex-row align-items-center">
+										<span class="act-price">{{ product.price | currency: '':'EGP':'':'fr' }}</span>
+									</div>
+								</div>
+								<p class="about">{{ product.description }}</p>
+								<div class="sizes mt-5">
+									<h6 class="text-uppercase">Production Date</h6>
+									{{ product.createdAt | date: 'MMM / Y' }}
+								</div>
+								<div class="cart mt-4 align-items-center">
+									<button
+										[ngClass]="alreadyInCart ? 'btn btn-danger text-uppercase mr-2 px-4' : 'btn sysColor text-white text-uppercase mr-2 px-4'"
+										[disabled]="!product.count"
+										(click)="alreadyInCart ? removeFromCart() : addToCart()">
+										{{ alreadyInCart ? 'Remove from cart' : 'Add To Cart' }}
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>

@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 	templateUrl: './productcard.component.html',
 	styleUrls: ['./productcard.component.css'],
 })
+
 export class ProductcardComponent implements OnInit {
 	@Input() product: Product = {
 		id: 0,
@@ -20,7 +21,7 @@ export class ProductcardComponent implements OnInit {
 		image: '',
 		purchaseValue: 0,
 	};
-
+	
 	alreadyInCart: boolean = false; // Flag To Check The Product Added Or Not to Cart
 	productCount: number = 0; // Holding The Value Of Counter Service
 	cartArray: any = []; // Holding The Cart Container Array Service

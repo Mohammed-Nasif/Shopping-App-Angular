@@ -9,3 +9,10 @@ h6 {
 h6:hover {
 	color: rgb(247, 0, 21);
 }
+.sysColor {
+	background-color: rgb(0, 185, 218);
+	color: white;
+}
+.sysColor:hover {
+	background-color: rgb(2, 156, 184);
+}

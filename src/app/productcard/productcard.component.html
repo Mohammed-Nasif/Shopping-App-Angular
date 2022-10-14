@@ -1,4 +1,4 @@
-<div class="card mb-4 d-flex flex-column justify-content-center" style="width: 18rem; min-height: 30rem">
+<div class="card mb-4 d-flex flex-column justify-content-center" style="width: 18rem; min-height: 33rem">
 	<div class="d-flex justify-content-center align-items-center">
 		<img [src]="product.image" class="card-img-top m-auto" style="width: 250px; height: 300px; object-fit: contain" [alt]="product.name" />
 	</div>
@@ -7,16 +7,22 @@
 		<ng-template #tureContent><span [innerHtml]="stockAvaliable(product.count, currPurchase)"></span></ng-template>
 		<ng-template #falseContent><span [innerHtml]="stockAvaliable(product.count, currPurchase)"></span></ng-template>
 
-		<h6 class="card-title mt-2" (click)="sendProductDetails()" data-toggle="tooltip" data-placement="top" [title]="product.name">{{ product.name }}</h6>
+		<h6 class="card-title mt-2" (click)="sendProductDetails()" data-toggle="tooltip" data-placement="top" [title]="product.name">{{
+			product.name
+		}}</h6>
 		<p class="card-text"
 			>Price: <span class="text-primary">{{ product.price | currency: '':'EGP':'':'fr' }}</span></p
 		>
-		<button
-			[ngClass]="alreadyInCart ? 'btn btn-danger' : 'btn btn-secondary'"
-			[disabled]="!product.count"
-			(click)="alreadyInCart ? removeFromCart() : addToCart()">
-			{{ alreadyInCart ? 'Remove from cart' : 'Add To Cart' }}
-		</button>
+		<div class="row justify-content-around btns">
+			<button
+				class="col-5" style="min-height: 4rem"
+				[ngClass]="alreadyInCart ? 'btn btn-danger' : 'btn btn-secondary'"
+				[disabled]="!product.count"
+				(click)="alreadyInCart ? removeFromCart() : addToCart()">
+				{{ alreadyInCart ? 'Remove From Cart' : 'Add To Cart' }}
+			</button>
+			<button class="col-5 btn sysColor" (click)="sendProductDetails()">Details</button>
+		</div>
 	</div>
 	<div class="card-footer">
 		<small class="text-muted">Production Date: {{ product.createdAt | date: 'MMM / Y' }}</small>

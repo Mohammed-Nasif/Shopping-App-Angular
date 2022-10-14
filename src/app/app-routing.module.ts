@@ -1,5 +1,6 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { CartComponent } from './cart/cart.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -10,11 +11,16 @@ import { RegisterformComponent } from './registerform/registerform.component';
 const routes: Routes = [
 	{
 		path: '',
-		component: ProductslistComponent,
+		component: LoginformComponent,
+	},
+	{
+		path: 'login',
+		component: LoginformComponent,
 	},
 	{
 		path: 'home',
 		component: ProductslistComponent,
+		canActivate: [AuthGuard],
 	},
 	{
 		path: 'cart',
@@ -27,10 +33,6 @@ const routes: Routes = [
 	{
 		path: 'register',
 		component: RegisterformComponent,
-	},
-	{
-		path: 'login',
-		component: LoginformComponent,
 	},
 	{
 		path: '**',

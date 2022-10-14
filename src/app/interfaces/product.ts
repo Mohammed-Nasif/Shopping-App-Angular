@@ -6,4 +6,6 @@ export interface Product {
 	price: 0;
 	image: string;
 	purchaseValue: number;
+	description?: string;
+	rate?: number;
 }
