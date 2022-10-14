@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ProductscounterService } from '../services/productscounter.service';
 import { CartcontainerService } from '../services/cartcontainer.service';
 import { ToastrService } from 'ngx-toastr';
+import { faHeartCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'app-productcard',
@@ -21,13 +22,13 @@ export class ProductcardComponent implements OnInit {
 		image: '',
 		purchaseValue: 0,
 	};
-	
+
 	alreadyInCart: boolean = false; // Flag To Check The Product Added Or Not to Cart
 	productCount: number = 0; // Holding The Value Of Counter Service
 	cartArray: any = []; // Holding The Cart Container Array Service
 	itemsTotalPrice: number = 0; // Holding The Total Price In The Cart Service
 	currPurchase: number = 0; // Holding The Value Of The Purchased Times of Item
-
+	heartIcon = faHeartCirclePlus; // Wish List Icon
 	constructor(
 		private router: Router,
 		private counterService: ProductscounterService,
