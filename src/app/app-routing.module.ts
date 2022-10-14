@@ -21,7 +21,7 @@ const routes: Routes = [
 	{
 		path: 'home',
 		component: ProductslistComponent,
-		canActivate: [AuthGuard],
+		// canActivate: [AuthGuard],
 	},
 	{
 		path: 'cart',
@@ -34,7 +34,7 @@ const routes: Routes = [
 	{
 		path: 'register',
 		component: RegisterformComponent,
-		canDeactivate: [RegistGuard],
+		// canDeactivate: [RegistGuard],
 	},
 	{
 		path: '**',
