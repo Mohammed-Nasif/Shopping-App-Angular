@@ -26,7 +26,6 @@ export class ProductdetailsComponent implements OnInit {
 	};
 	cartIcon = faCartPlus;
 	starIcon = faStar;
-	isLoading = false;
 	alreadyInCart: boolean = false; // Flag To Check The Product Added Or Not to Cart
 	productCount: number = 0; // Holding The Value Of Counter Service
 	cartArray: any = []; // Holding The Cart Container Array Service
@@ -43,10 +42,7 @@ export class ProductdetailsComponent implements OnInit {
 		this.product.id = params['id'];
 		this.getProductDetails(this.product.id);
 	}
-	ngOnInit() {
-		this.isLoading = true;
-		setTimeout(() => (this.isLoading = false), 500);
-	}
+	ngOnInit() {}
 	getProductDetails(ID: any): void {
 		this.detailsService.getProductdetials(ID).subscribe((response: any) => {
 			this.product = response;

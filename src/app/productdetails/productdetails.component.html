@@ -1,6 +1,3 @@
-<div class="loader-wrapper" *ngIf="isLoading">
-	<span class="loader"></span>
-</div>
 <section class="container m-auto d-flex justify-content-center align-items-center">
 	<!-- <app-productcard [product]="product"></app-productcard> -->
 	<div class="container mt-5 m-auto">
@@ -24,7 +21,7 @@
 								<div class="mt-4 mb-3">
 									<span class="text-uppercase text-muted brand"
 										>Rating: {{ product.rate }}
-										<fa-icon [icon]="starIcon" style="color: gold;"></fa-icon>
+										<fa-icon [icon]="starIcon" style="color: gold"></fa-icon>
 									</span>
 									<h5 class="text-uppercase mt-2">{{ product.name.substring(0, 25) }}</h5>
 									<div class="price d-flex flex-row align-items-center">

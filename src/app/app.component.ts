@@ -7,10 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
 	title = 'cartApp';
-	isLoading = false;
 	constructor() {}
-	ngOnInit() {
-    	this.isLoading = true;
-			setTimeout(() => (this.isLoading = false), 700);
-  }
+	ngOnInit() {}
 }

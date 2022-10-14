@@ -8,16 +8,11 @@ import { ProductsService } from '../services/products.service';
 })
 export class ProductslistComponent implements OnInit {
 	products: any;
-	isLoading = false;
-
 	constructor(private service: ProductsService) {}
-
 	ngOnInit(): void {
 		this.service.getProducts().subscribe((response: any) => {
 			this.products = response;
 			// console.log(this.products);
 		});
-		this.isLoading = true;
-		setTimeout(() => (this.isLoading = false), 300);
 	}
 }

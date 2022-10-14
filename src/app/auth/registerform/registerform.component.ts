@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
 	selector: 'app-registerform',
@@ -9,7 +10,7 @@ import { FormGroup, Validators, FormBuilder, AbstractControl, ValidationErrors, 
 export class RegisterformComponent implements OnInit {
 	registerForm: FormGroup;
 	submitted: boolean = false; // Submit Flag To Check User Cliked Register Btn To Show Error Message [But I am Already Disabled The Btn ^_^ Till Validation Done]
-	constructor(private fb: FormBuilder) {
+	constructor(private fb: FormBuilder, private authService: AuthService) {
 		this.registerForm = this.fb.group(
 			{
 				name: ['', Validators.required],
@@ -31,6 +32,13 @@ export class RegisterformComponent implements OnInit {
 	}
 
 	ngOnInit(): void {}
+	ngDoCheck() {
+		const isDirt = this.registerForm.dirty;
+		if (isDirt) {
+			// console.log("Dirty", this.authService.registValue)
+			this.authService.checkRegisteration(false);
+		}
+	}
 
 	formSubmitHandler() {
 		this.submitted = true; // Change The Flag To True

@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { CartComponent } from './cart/cart.component';
-import { LoginformComponent } from './loginform/loginform.component';
+import { LoginformComponent } from './auth/loginform/loginform.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { ProductslistComponent } from './productslist/productslist.component';
-import { RegisterformComponent } from './registerform/registerform.component';
+import { RegisterformComponent } from './auth/registerform/registerform.component';
+import { RegistGuard } from './guards/regist.guard';
 
 const routes: Routes = [
 	{
@@ -33,6 +34,7 @@ const routes: Routes = [
 	{
 		path: 'register',
 		component: RegisterformComponent,
+		canDeactivate: [RegistGuard],
 	},
 	{
 		path: '**',

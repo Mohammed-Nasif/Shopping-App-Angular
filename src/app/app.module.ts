@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { AuthModule } from './auth/auth.module';
 // Services
 import { ProductsService } from './services/products.service';
 import { ProductscounterService } from './services/productscounter.service';
@@ -24,8 +25,6 @@ import { ProductcardComponent } from './productcard/productcard.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { CartitemComponent } from './cartitem/cartitem.component';
-import { RegisterformComponent } from './registerform/registerform.component';
-import { LoginformComponent } from './loginform/loginform.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
@@ -34,8 +33,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 		NavbarComponent,
 		ProductslistComponent,
 		ProductcardComponent,
-		RegisterformComponent,
-		LoginformComponent,
 		NotFoundComponent,
 		CartComponent,
 		ProductdetailsComponent,
@@ -56,6 +53,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 			preventDuplicates: true,
 			closeButton: true,
 		}),
+		AuthModule,
 	],
 	providers: [ProductsService, ProductscounterService, CartcontainerService],
 	bootstrap: [AppComponent],
