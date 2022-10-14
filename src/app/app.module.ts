@@ -29,6 +29,7 @@ import { CartitemComponent } from './cartitem/cartitem.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 // Interceptors
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { StoreModule } from '@ngrx/store';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -56,7 +57,8 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
 			closeButton: true,
 		}),
 		AuthModule,
-		SharedModule
+		SharedModule,
+		StoreModule.forRoot({}, {})
 	],
 	providers: [
 		ProductsService,
