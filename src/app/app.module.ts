@@ -7,12 +7,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
 // Services
 import { ProductsService } from './services/products.service';
 import { ProductscounterService } from './services/productscounter.service';
@@ -26,7 +27,8 @@ import { CartComponent } from './cart/cart.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { CartitemComponent } from './cartitem/cartitem.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
+// Interceptors
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -54,8 +56,18 @@ import { NotFoundComponent } from './not-found/not-found.component';
 			closeButton: true,
 		}),
 		AuthModule,
+		SharedModule
 	],
-	providers: [ProductsService, ProductscounterService, CartcontainerService],
+	providers: [
+		ProductsService,
+		ProductscounterService,
+		CartcontainerService,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: LoaderInterceptor,
+			multi: true,
+		},
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

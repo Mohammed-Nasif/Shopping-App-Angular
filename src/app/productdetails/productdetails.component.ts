@@ -6,6 +6,7 @@ import { ProductscounterService } from '../services/productscounter.service';
 import { CartcontainerService } from '../services/cartcontainer.service';
 import { faCartPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
+import { map } from 'rxjs';
 
 @Component({
 	selector: 'app-productdetails',
@@ -42,7 +43,20 @@ export class ProductdetailsComponent implements OnInit {
 		this.product.id = params['id'];
 		this.getProductDetails(this.product.id);
 	}
-	ngOnInit() {}
+	ngOnInit() {
+			this.detailsService
+				.getProducts()
+				.pipe(
+					map((res: any) => {
+						const product: any = res;
+						return product;
+					}),
+				)
+				.subscribe((data: any) => {
+					this.product = data;
+					// console.log(this.product);
+				});
+	}
 	getProductDetails(ID: any): void {
 		this.detailsService.getProductdetials(ID).subscribe((response: any) => {
 			this.product = response;
