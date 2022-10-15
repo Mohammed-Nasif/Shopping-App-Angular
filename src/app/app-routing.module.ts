@@ -21,7 +21,7 @@ const routes: Routes = [
 	{
 		path: 'home',
 		component: ProductslistComponent,
-		// canActivate: [AuthGuard],
+		canActivate: [AuthGuard],
 	},
 	{
 		path: 'cart',
