@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
+import { StoreModule } from '@ngrx/store';
 // Services
 import { ProductsService } from './services/products.service';
 import { ProductscounterService } from './services/productscounter.service';
@@ -29,7 +30,10 @@ import { CartitemComponent } from './cartitem/cartitem.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 // Interceptors
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
-import { StoreModule } from '@ngrx/store';
+import { wishListReducer } from './store/wishlist/wishlist.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -58,7 +62,8 @@ import { StoreModule } from '@ngrx/store';
 		}),
 		AuthModule,
 		SharedModule,
-		StoreModule.forRoot({}, {})
+		StoreModule.forRoot({ wishList: wishListReducer }, {}),
+		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 	],
 	providers: [
 		ProductsService,

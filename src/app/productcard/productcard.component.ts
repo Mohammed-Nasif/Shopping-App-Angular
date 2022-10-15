@@ -1,17 +1,18 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../interfaces/product';
 import { Router } from '@angular/router';
 import { ProductscounterService } from '../services/productscounter.service';
 import { CartcontainerService } from '../services/cartcontainer.service';
 import { ToastrService } from 'ngx-toastr';
 import { faHeartCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { Store } from '@ngrx/store';
+import { addToWishlist } from './../store/wishlist/wishlist.action';
 
 @Component({
 	selector: 'app-productcard',
 	templateUrl: './productcard.component.html',
 	styleUrls: ['./productcard.component.css'],
 })
-
 export class ProductcardComponent implements OnInit {
 	@Input() product: Product = {
 		id: 0,
@@ -29,11 +30,13 @@ export class ProductcardComponent implements OnInit {
 	itemsTotalPrice: number = 0; // Holding The Total Price In The Cart Service
 	currPurchase: number = 0; // Holding The Value Of The Purchased Times of Item
 	heartIcon = faHeartCirclePlus; // Wish List Icon
+	wishList: any = {};
 	constructor(
 		private router: Router,
 		private counterService: ProductscounterService,
 		private cartService: CartcontainerService,
 		private toastr: ToastrService,
+		private store: Store<{ wishList: Array<Product> }>,
 	) {}
 
 	ngOnInit(): void {
@@ -46,6 +49,10 @@ export class ProductcardComponent implements OnInit {
 			this.alreadyInCart = true; // Flag Changed As The Cart Includes The Product
 			this.currPurchase = this.cartArray.filter((item: any) => item.id === this.product.id)[0].purchaseValue; //Get The Value of The Times of Purchased of The Product
 		}
+
+		// Get The Value From Store
+		this.store.select('wishList').subscribe((res) => (this.wishList = res));
+		// console.log(this.wishList);
 	}
 
 	// Fn To Send Navigate To Details And Send ID
@@ -115,6 +122,11 @@ export class ProductcardComponent implements OnInit {
 			positionClass: 'toast-top-right',
 			progressBar: true,
 		});
+	}
+
+	addToWishlist() {
+		this.store.dispatch(addToWishlist({ item: {...this.product} }));
+		// console.log(this.wishList);
 	}
 }
 

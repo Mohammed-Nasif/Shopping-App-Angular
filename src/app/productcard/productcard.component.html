@@ -3,14 +3,14 @@
 		<img [src]="product.image" class="card-img-top m-auto" style="width: 250px; height: 300px; object-fit: contain" [alt]="product.name" />
 	</div>
 	<div class="card-body">
-		<div class="row d-flex flex-row g-0 p-0 align-items-center justify-content-between" >
+		<div class="row d-flex flex-row g-0 p-0 align-items-center justify-content-between">
 			<div class="col-8 p-0">
 				<p class="card-text" *ngIf="alreadyInCart; then tureContent; else falseContent"> </p>
 				<ng-template #tureContent><span [innerHtml]="stockAvaliable(product.count, currPurchase)"></span></ng-template>
 				<ng-template #falseContent><span [innerHtml]="stockAvaliable(product.count, currPurchase)"></span></ng-template>
 			</div>
 			<div class="col-2 p-0">
-				<fa-icon [icon]="heartIcon" style="color: rgb(212, 59, 84); cursor: pointer"></fa-icon>
+				<fa-icon (click)="addToWishlist()" [icon]="heartIcon" style="color: rgb(212, 59, 84); cursor: pointer"></fa-icon>
 			</div>
 		</div>
 		<h6 class="card-title mt-2" (click)="sendProductDetails()" data-toggle="tooltip" data-placement="top" [title]="product.name">{{
