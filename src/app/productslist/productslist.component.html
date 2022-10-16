@@ -8,7 +8,7 @@
 	</div>
 	<div class="wishlist col-3" [ngSwitch]="true">
 		<div class="d-flex flex-row align-items-center justify-content-between pe-2">
-			<h2 class="sysColor-text">Wishlist</h2>
+			<h3 class="sysColor-text text-uppercase fw-bold">Wishlist</h3>
 			<p style="color: gold" class="pt-3">{{ wishList.itemsList.length }} Products</p>
 		</div>
 		<div *ngSwitchCase="wishList.itemsList.length !== 0">
@@ -20,7 +20,7 @@
 					></span>
 					<div class="px-3 my-3">
 						<div class="cart-item-product">
-							<div class="cart-item-product-thumb"><img [src]="wishItem.image" alt="Product" /></div>
+							<div class="cart-item-product-thumb bg-light rounded-4 overflow-hidden"><img [src]="wishItem.image" alt="Product" /></div>
 							<div class="cart-item-product-info">
 								<h6 class="card-title mt-2" (click)="goToDetails(wishItem.id)" data-toggle="tooltip" data-placement="top" [title]="wishItem.name"
 									>{{ wishItem.name.substr(0, 14) }} ...</h6

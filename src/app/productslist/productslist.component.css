@@ -2,7 +2,7 @@
 	position: relative;
 	margin-bottom: 30px;
 	border-radius: 10px;
-	background-color: rgb(205, 220, 1);
+	background-color: #92ecfcf5;
 }
 .cart-item .cart-item-label {
 	display: block;
@@ -189,6 +189,7 @@
 	border: 4px solid gold;
 	border-radius: 10px;
 	padding: 10px;
-	background-color: #1d263a;
+	/* background-color: #1d263a; */
+	background-color: #252a34;
 	max-height: 1335px;
 }
