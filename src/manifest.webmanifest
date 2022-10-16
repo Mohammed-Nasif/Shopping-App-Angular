@@ -1,6 +1,6 @@
 {
-  "name": "cartApp",
-  "short_name": "cartApp",
+  "name": "shoppingApp",
+  "short_name": "shoppingApp",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
