@@ -26,6 +26,7 @@ export class RegisterformComponent implements OnInit {
 			},
 		);
 	}
+
 	get registerFormControl(): any {
 		// Insted Of Typing registerForm.controls["formControlName"] => everyTime
 		return this.registerForm.controls;
