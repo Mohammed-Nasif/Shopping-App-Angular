@@ -7,7 +7,7 @@ h6 {
 	transition: all 0.1s linear;
 }
 h6:hover {
-	color: rgb(247, 0, 21);
+	color: rgb(68, 244, 127);
 }
 .sysColor {
 	background-color: rgb(0, 185, 218);
@@ -15,4 +15,14 @@ h6:hover {
 }
 .sysColor:hover {
 	background-color: rgb(2, 156, 184);
+}
+.wishIcon {
+	color: rgb(212, 59, 84);
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+.wishIcon-selected {
+	color: rgb(255, 200, 0);
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
 }
