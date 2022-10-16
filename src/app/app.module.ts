@@ -34,6 +34,7 @@ import { wishListReducer } from './store/wishlist/wishlist.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
 	declarations: [
@@ -45,6 +46,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 		CartComponent,
 		ProductdetailsComponent,
 		CartitemComponent,
+  WishlistComponent,
 	],
 	imports: [
 		BrowserModule,

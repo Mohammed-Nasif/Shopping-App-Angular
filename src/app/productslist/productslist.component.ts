@@ -13,23 +13,13 @@ import { Router } from '@angular/router';
 })
 export class ProductslistComponent implements OnInit {
 	products: any;
-	wishList: any = {};
-	removeIcon = faRemove;
-	constructor(private service: ProductsService, private store: Store<{ wishList: Array<Product> }>, private router: Router) {
-		// Get The Value From Store
-		this.store.select('wishList').subscribe((res) => (this.wishList = res));
+	
+	constructor(private service: ProductsService) {
 	}
 	ngOnInit(): void {
 		this.service.getProducts().subscribe((data: []) => {
 			this.products = data;
 		});
 	}
-	removeFromWishlist(id: number) {
-		let clearedProduct = this.wishList.itemsList.filter((item: Product) => item.id === id)[0];
-		this.store.dispatch(removefromWishlist({ item: clearedProduct }));
-	}
-	goToDetails(idNum: number) {
-		//Navigate To Product Details Page And With Product Id
-		this.router.navigate(['product', idNum]);
-	}
+
 }

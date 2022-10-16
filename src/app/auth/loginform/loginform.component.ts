@@ -11,7 +11,6 @@ export class LoginformComponent implements OnInit {
 	constructor(private authService: AuthService, private router: Router) {}
 	ngOnInit(): void {}
 	formSubmitHandler(form: any) {
-		// console.log(form.value);
 		this.authService.checkAuthentication(true); // User Authentication Guard
 		this.router.navigate(['home']);
 	}

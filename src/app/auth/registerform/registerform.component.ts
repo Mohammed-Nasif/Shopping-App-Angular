@@ -36,13 +36,12 @@ export class RegisterformComponent implements OnInit {
 	ngDoCheck() {
 		const isDirt = this.registerForm.dirty;
 		if (isDirt) {
-			// console.log("Dirty", this.authService.registValue)
 			this.authService.checkRegisteration(false);
 		}
 	}
 
 	formSubmitHandler() {
-		this.submitted = true; // Change The Flag To True
+		this.submitted = true;
 		if (this.registerForm.valid) {
 			alert('Check The Submitted Data In Console');
 			// Show The Submitted Data In Console
