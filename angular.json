@@ -3,7 +3,7 @@
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
-		"cartApp": {
+		"shoppigApp": {
 			"projectType": "application",
 			"schematics": {},
 			"root": "",
