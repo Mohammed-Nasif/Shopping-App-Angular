@@ -12,7 +12,7 @@ don't use "npm install"
 
 1. ng build --configuration production --aot 
 2. npm install -g http-server
-3. http-server dist/shopping-app -o
+3. http-server dist/cart-app -o
 ---
 ## Development server
 
