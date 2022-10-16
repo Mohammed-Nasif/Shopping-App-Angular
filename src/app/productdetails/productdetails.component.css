@@ -3,7 +3,9 @@
 }
 
 .backBtn {
+	color: rgb(62, 178, 202);
 	cursor: pointer;
+	transition: all 0.2s ease-in-out;
 }
 .backBtn:hover {
 	color: red;
@@ -27,13 +29,6 @@
 
 .zoom-img img:hover {
 	transform: scale(1.2);
-}
-
-.addtocarticon {
-	cursor: pointer;
-}
-.addtocarticon::hover {
-	color: rgb(0, 185, 218);
 }
 
 .sysColor {

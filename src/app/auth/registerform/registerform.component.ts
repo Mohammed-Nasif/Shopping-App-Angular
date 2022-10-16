@@ -54,7 +54,6 @@ export class RegisterformComponent implements OnInit {
 			const formGroup = control as FormGroup;
 			const control1Val = formGroup.get(control1)?.value;
 			const control2val = formGroup.get(control2)?.value;
-
 			if (control1Val === control2val) {
 				return null;
 			} else {

@@ -15,7 +15,7 @@
 				<ng-template #falseContent><span [innerHtml]="stockHtmlText"></span></ng-template>
 			</div>
 			<div class="col-1 p-0 text-center">
-				<fa-icon [ngClass]="inWishlist ? 'wishIcon-selected': 'wishIcon'" (click)="addToWishlist()" [icon]="heartIcon"></fa-icon>
+				<fa-icon [ngClass]="inWishlist ? 'wishIcon-selected': 'wishIcon'" (click)="inWishlist ? removeFromWishlist() : addToWishlist()" [icon]="heartIcon"></fa-icon>
 			</div>
 		</div>
 		<h6 class="card-title my-2" (click)="sendProductDetails()" data-toggle="tooltip" data-placement="top" [title]="product.name">{{

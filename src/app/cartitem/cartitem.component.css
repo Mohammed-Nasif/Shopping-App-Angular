@@ -4,6 +4,13 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
-.removeBtn{
+.removeBtn {
+	font-size: 24px;
 	cursor: pointer;
+}
+.sysColor {
+	color: rgb(0, 185, 218);
+}
+.sysColor:hover {
+	color: rgb(2, 156, 184);
 }

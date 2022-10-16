@@ -70,7 +70,26 @@
 					>
 				</div>
 			</div>
-			<!-- registerFormControl.password.value !== registerFormControl.confirmPassword.value -->
+
+			<!-- Repeat Password input -->
+			<div class="form-outline mb-4">
+				<label class="form-label" for="registerRepeatPassword">Adrress</label>
+				<div class="inputs row">
+					<input type="password" id="registerRepeatPassword" class="form-control mb-2 col-4 w-25" formControlName="confirmPassword" />
+					<input type="password" id="registerRepeatPassword" class="form-control mb-2 col-4 w-25" formControlName="confirmPassword" />
+					<input type="password" id="registerRepeatPassword" class="form-control mb-2 col-4 w-25" formControlName="confirmPassword" />
+					<input type="password" id="registerRepeatPassword" class="form-control mb-2 col-4 w-25" formControlName="confirmPassword" />
+				</div>
+				<!-- <div
+					class="form-text text-danger"
+					*ngIf="registerFormControl.confirmPassword.touched || registerFormControl.confirmPassword.dirty || submitted">
+					<p class="m-0 alert alert-danger p-1" *ngIf="registerFormControl.confirmPassword.errors?.required">Password is a required field!</p>
+					<p class="m-0 alert alert-danger p-1" *ngIf="registerForm.errors?.['valuesNotMatched'] && registerFormControl.confirmPassword.value !== ''"
+						>Password not matched, Please Check it again.</p
+					>
+				</div> -->
+			</div>
+
 			<!-- Checkbox -->
 			<div class="form-check d-flex justify-content-center mb-4">
 				<input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked aria-describedby="registerCheckHelpText" />

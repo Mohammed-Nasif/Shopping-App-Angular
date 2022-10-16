@@ -6,7 +6,7 @@ import { CartcontainerService } from '../services/cartcontainer.service';
 import { ToastrService } from 'ngx-toastr';
 import { faHeartCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
-import { addToWishlist } from './../store/wishlist/wishlist.action';
+import { addToWishlist, removefromWishlist } from './../store/wishlist/wishlist.action';
 
 @Component({
 	selector: 'app-productcard',
@@ -47,6 +47,7 @@ export class ProductcardComponent implements OnInit {
 		this.cartService.cartArray.subscribe((arr) => (this.cartArray = arr));
 		// Check If The Product Is Already In The Cart To Change The Flag
 		if (this.cartArray.some((item: any) => item.id === this.product.id)) {
+			console.log('incart from product');
 			this.alreadyInCart = true; // Flag Changed As The Cart Includes The Product
 			this.currPurchase = this.cartArray.filter((item: any) => item.id === this.product.id)[0].purchaseValue; //Get The Value of The Times of Purchased of The Product
 		}
@@ -138,5 +139,10 @@ export class ProductcardComponent implements OnInit {
 		// Add The Product To The Wishlist Store Array
 		this.store.dispatch(addToWishlist({ item: { ...this.product } }));
 		this.inWishlist = true;
+	}
+	removeFromWishlist(): void {
+		let clearedProduct = this.wishList.itemsList.filter((item: Product) => item.id === this.product.id)[0];
+		this.store.dispatch(removefromWishlist({ item: clearedProduct }));
+		this.inWishlist = false;
 	}
 }
